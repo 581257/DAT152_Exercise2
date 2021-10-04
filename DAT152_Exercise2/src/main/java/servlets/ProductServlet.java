@@ -30,16 +30,11 @@ public class ProductServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Cookie[] cookies = request.getCookies();
-		String lang = " ";
 		if(cookies != null) {
-			//hvorfor så mange cookies?? 
 			for(Cookie cookie: cookies) {
 				if(cookie.getName().equals("locale")) {
 					//setter localen fra cookien
-					System.out.println("cookie.getvalue " + cookie.getValue());
-					lang = cookie.getValue();
 					Config.set(request.getSession(), Config.FMT_LOCALE, cookie.getValue());
-					System.out.println(request.getLocale() + "jnfejef");
 				}
 			}
 		}else { //no cookies
@@ -53,18 +48,9 @@ public class ProductServlet extends HttpServlet {
 			//bestemmer hvor lenge denne skal være gyldig, må spesifisere dette for at den skal lagres 
 			localecookie.setMaxAge(365 * 24 * 60 * 60); // One year in seconds);
 			//sender cookie
-			System.out.println("locale "+ locale.getCountry());
 			response.addCookie(localecookie);
 		}
 		List<Product> prod = eao.getAll();
-		List<Integer> priceEuro = prod.stream().map(p->p.getPriceInEuro()).collect(Collectors.toList());
-		Locale locale = new Locale("no", "NO");
-		NumberFormat formatter = NumberFormat.getCurrencyInstance(locale);
-		List<String> priceNOK = new ArrayList<String>();
-		for(Integer p : priceEuro) {
-			priceNOK.add(formatter.format(p));
-		}
-		request.getSession().setAttribute("priceNOK", priceNOK);
 		request.getSession().setAttribute("products", prod);
 		response.sendRedirect("product.jsp");
 	}
@@ -72,8 +58,6 @@ public class ProductServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pno = request.getParameter("pno");
-		System.out.println(pno +" pno");
-		
 		if(pno!=null) {
 			int pnoint = Integer.parseInt(pno);
 			if(!choosen.stream().anyMatch(p->p.getPno()==pnoint)) {

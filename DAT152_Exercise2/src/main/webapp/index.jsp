@@ -17,8 +17,6 @@
     <h3> Beste Firma AS</h3>
     <img src="cup.jpg" alt="cup">
     <p> <fmt:message key="greeting" /> <a href="Product" ><fmt:message key="products" /> </a></p>
-    
-    
     <p> <dat152:copyright since="2019"/> HVL<p> 
     </fmt:bundle>
 </body>

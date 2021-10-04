@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -16,14 +15,14 @@
 
     <p> <jsp:include page="chooseLanguage.jsp"/></p>     
     <fmt:bundle basename="dat152.languages.Messages">
-    <table>
-        <tr>
+    
         
              <c:forEach items="${products}" var="p">
-             <td>
-                <img src="${p.imgurl}" alt="cup">
-             </td>
-             <td>
+            
+                <div style="display:flex">
+                <div><img src="${p.imgurl}" alt="cup" width="200" hight="200"></div>
+             <div>
+             
                 <h3>  ${p.pName} </h3>
                 <c:choose> 
                     <c:when test="${pageContext.response.locale==no_NO}">
@@ -31,10 +30,11 @@
                     </c:when>
                 </c:choose>
                 <c:forEach items="${p.description}" var="d">
+               
                     <c:choose>
                        <c:when test="${d.langCode== pageContext.response.locale}">
                              <p> <fmt:message key="description"/>: ${d.text}</p>   
-                             <p> <dat152:shorttext>${d.text}</dat152:shorttext></p>                  
+                                          
                        </c:when>
                     </c:choose>
                 </c:forEach>
@@ -42,11 +42,14 @@
                     <p><input type="hidden" name="pno" value="${p.pno}"/></p>
                     <p><input type="submit" value="<fmt:message key="add"/>" /></p>
                 </form>
-                </td>
+                </div>
+                
+                
+               </div>
              </c:forEach>
-             </tr>
-    </table>         
-          <p>   ${pageContext.response.locale}</p>
+             
+            
+             
     
     
         <p><a href="index.jsp"><fmt:message key="home"/></a> <a href="Cart"><fmt:message key="cart" /></a></p>
