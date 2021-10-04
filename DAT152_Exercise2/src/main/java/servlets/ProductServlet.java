@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -21,7 +22,7 @@ import pakke.Product;
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ProductEAO eao = new ProductEAO();
-	List<Product> choosen = Arrays.asList();
+	List<Product> choosen = new ArrayList<Product>();
     
 
 	@Override
@@ -66,8 +67,9 @@ public class ProductServlet extends HttpServlet {
 		if(pno!=null) {
 			int pnoint = Integer.parseInt(pno);
 			if(!choosen.stream().anyMatch(p->p.getPno()==pnoint)) {
-				choosen.add(eao.getProduct(pnoint));
 				System.out.println(eao.getProduct(pnoint).getpName());
+				choosen.add(eao.getProduct(pnoint));
+				
 			
 			}
 		}

@@ -11,7 +11,7 @@
 	
 	<tag>
 		<description>CopyrightTag gives the year when started and current year in roman numerals</description>
-		<name>Copyright</name>
+		<name>copyright</name>
 		<tag-class>pakke.CopyrightTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
@@ -20,5 +20,16 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
+    <tag>
+        <description>ShortTextTag returns max characters of a text</description>
+        <name>shorttext</name>
+        <tag-class>pakke.ShortTextTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>max</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>

@@ -3,6 +3,8 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib uri="dat152-libs" prefix="dat152"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +22,8 @@
                 <c:forEach items="${p.description}" var="d">
                     <c:choose>
                        <c:when test="${d.langCode==lang}">
-                             <p> <fmt:message key="description"/>: funker ikke hvis jeg endrer underveis ${d.text}</p>
+                             <p> <fmt:message key="description"/>: ${d.text}</p>   
+                             <p> <dat152:shorttext>${d.text}</dat152:shorttext></p>                  
                        </c:when>
                     </c:choose>
                 </c:forEach>
@@ -29,10 +32,11 @@
                     <p><input type="submit" value="<fmt:message key="add"/>" /></p>
                 </form>
              </c:forEach>
-    </fmt:bundle>
     
-    <p> linker til hjem og cart</p>p> 
-
+    
+        <p><a href="index.jsp"><fmt:message key="home"/></a> <a href="Cart"><fmt:message key="cart" /></a></p>
+        <p> <dat152:copyright since="2019"/> HVL<p> 
+    </fmt:bundle>
 
 </body>
 </html>

@@ -19,7 +19,7 @@
     <p> <fmt:message key="greeting" /> <a href="Product" ><fmt:message key="products" /> </a></p>
     
     
-    <p> <dat152:Copyright since="2019"/> HVL<p> 
+    <p> <dat152:copyright since="2019"/> HVL<p> 
     </fmt:bundle>
 </body>
 </html>
