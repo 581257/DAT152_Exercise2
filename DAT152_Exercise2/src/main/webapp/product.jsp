@@ -16,7 +16,14 @@
 
     <p> <jsp:include page="chooseLanguage.jsp"/></p>     
     <fmt:bundle basename="dat152.languages.Messages">
+    <table>
+        <tr>
+        
              <c:forEach items="${products}" var="p">
+             <td>
+                <img src="${p.imgurl}" alt="cup">
+             </td>
+             <td>
                 <h3>  ${p.pName} </h3>
                 <c:choose> 
                     <c:when test="${pageContext.response.locale==no_NO}">
@@ -35,7 +42,10 @@
                     <p><input type="hidden" name="pno" value="${p.pno}"/></p>
                     <p><input type="submit" value="<fmt:message key="add"/>" /></p>
                 </form>
+                </td>
              </c:forEach>
+             </tr>
+    </table>         
           <p>   ${pageContext.response.locale}</p>
     
     

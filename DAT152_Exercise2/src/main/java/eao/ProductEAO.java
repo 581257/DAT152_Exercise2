@@ -12,8 +12,8 @@ import pakke.Product;
 //mock eao
 public class ProductEAO {
 	List<Product> prod = Arrays.asList( 
-			new Product( 1111, "White cup", 1234, Arrays.asList(new Description("en_US", "english text................"), new Description("no_NO", "norsk tekst.................."),new Description("de_DE", "tysk....................."))),
-			new Product(2222, "Black cup", 5678, Arrays.asList(new Description("en_US", "english text................."), new Description("no_NO", "norsk tekst................"),new Description("de_DE", "tysk....................."))) 
+			new Product("cup.jpg", 1111, "White cup", 1234, Arrays.asList(new Description("en_US", "english text................"), new Description("no_NO", "norsk tekst.................."),new Description("de_DE", "tysk....................."))),
+			new Product("whitecup.jpg", 2222, "Black cup", 5678, Arrays.asList(new Description("en_US", "english text................."), new Description("no_NO", "norsk tekst................"),new Description("de_DE", "tysk....................."))) 
 			);
 	
 	public List<Product> getAll() {

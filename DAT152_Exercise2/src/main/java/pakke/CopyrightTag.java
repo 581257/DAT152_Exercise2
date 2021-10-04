@@ -84,7 +84,7 @@ public class CopyrightTag extends SimpleTagSupport {
 		
 		PageContext pageContext = (PageContext) getJspContext();
 		JspWriter out = pageContext.getOut();
-		out.println("\u00a9 "+ sinceRoman + " " + currentRoman);
+		out.println("\u00a9 "+ sinceRoman + "-" + currentRoman);
 	}
 
 }

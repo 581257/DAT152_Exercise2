@@ -39,7 +39,13 @@
     </c:forEach>
     <tr>
     <td colspan="4" style="text-align-last:end;"><fmt:message key="price"/></td>
-    <td>siste</td>
+     
+    <td>
+    
+    ${total}<fmt:message key="currency"/>
+   
+    </td>
+    
     </tr>
     </table>
 <p><a href="index.jsp"><fmt:message key="home"/></a> <a href="Product"><fmt:message key="products" /></a></p>

@@ -8,7 +8,7 @@ public class Product {
 	private int priceInEuro;
 	private List<Description> description;
 	private int qty=1;
-	//imagefile?
+	private String imgurl;
 	public int getPno() {
 		return pno;
 	}
@@ -33,13 +33,13 @@ public class Product {
 	public void setDescription(List<Description> description) {
 		this.description = description;
 	}
-	public Product(int pno, String pName, int priceInEuro, List<Description> description) {
+	public Product(String imgurl, int pno, String pName, int priceInEuro, List<Description> description) {
 		super();
 		this.pno = pno;
 		this.pName = pName;
 		this.priceInEuro = priceInEuro;
 		this.description = description;
-		
+		this.imgurl=imgurl;
 	}
 	public int getQty() {
 		return qty;
@@ -47,6 +47,14 @@ public class Product {
 	public void setQty() {
 		this.qty++;
 	}
+	public String getImgurl() {
+		return imgurl;
+	}
+	public void setImgurl(String imgurl) {
+		this.imgurl = imgurl;
+	}
+	
+	
 	
 	
 	

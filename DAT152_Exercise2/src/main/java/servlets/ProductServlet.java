@@ -83,6 +83,9 @@ public class ProductServlet extends HttpServlet {
 				eao.getProduct(pnoint).setQty();
 			}
 		}
+		int total = choosen.stream().map(p -> p.getQty() * p.getPriceInEuro()).collect(Collectors.summingInt(Integer::intValue));
+        request.getSession().setAttribute("choosen", choosen);
+        request.getSession().setAttribute("total", total);
 		request.getSession().setAttribute("choosen", choosen);
 		response.sendRedirect("Cart");
 	}

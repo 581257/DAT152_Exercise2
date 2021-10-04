@@ -15,7 +15,7 @@
     <fmt:bundle basename="dat152.languages.Messages">
     
     <h3> Beste Firma AS</h3>
-    
+    <img src="cup.jpg" alt="cup">
     <p> <fmt:message key="greeting" /> <a href="Product" ><fmt:message key="products" /> </a></p>
     
     
