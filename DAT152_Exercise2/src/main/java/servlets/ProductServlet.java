@@ -62,9 +62,11 @@ public class ProductServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pno = request.getParameter("pno");
+		System.out.println(pno +" pno");
 		if(pno!=null) {
 			int pnoint = Integer.parseInt(pno);
 			if(!choosen.stream().anyMatch(p->p.getPno()==pnoint)) {
+				choosen.add(eao.getProduct(pnoint));
 				System.out.println(eao.getProduct(pnoint).getpName());
 			
 			}

@@ -8,114 +8,17 @@
 	<tlib-version>1.0</tlib-version>
 	<short-name>dat152</short-name>
 	<uri>dat152-libs</uri>
+	
 	<tag>
-		<description>Outputs Hello World!</description>
-		<name>printHelloWorld</name>
-		<tag-class>no.hib.dat152.tags.HelloWorldTag</tag-class>
-		<body-content>empty</body-content>
-	</tag>
-	<tag>
-		<description>Outputs Hello (name)!</description>
-		<name>printHello</name>
-		<tag-class>no.hib.dat152.tags.HelloTag</tag-class>
+		<description>CopyrightTag gives the year when started and current year in roman numerals</description>
+		<name>Copyright</name>
+		<tag-class>pakke.CopyrightTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
-			<name>name</name>
+			<name>since</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
-	<tag>
-		<name>tempConverting</name>
-		<tag-class>no.hib.dat152.tags.TempConvertingTag</tag-class>
-		<body-content>empty</body-content>
-		<attribute>
-			<name>temp</name>
-			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-		<attribute>
-			<name>scale</name>
-			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-	</tag>
-	<tag>
-		<name>binary</name>
-		<tag-class>no.hib.dat152.tags.BinaryNumber</tag-class>
-		<body-content>empty</body-content>
-		<attribute>
-			<name>decimalNumber</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-		</attribute>
-	</tag>
-	<tag>
-		<name>octal</name>
-		<tag-class>no.hib.dat152.tags.OctalNumber</tag-class>
-		<body-content>empty</body-content>
-		<attribute>
-			<name>decimalNumber</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-		</attribute>
-	</tag>
-	<tag>
-		<name>uppercase</name>
-		<tag-class>no.hib.dat152.tags.UpperCase</tag-class>
-		<body-content>scriptless</body-content>
-	</tag>
-	<tag>
-		<name>lowercase</name>
-		<tag-class>no.hib.dat152.tags.LowerCase</tag-class>
-		<body-content>scriptless</body-content>
-	</tag>
-	<tag>
-		<name>box</name>
-		<tag-class>no.hib.dat152.tags.Box</tag-class>
-		<body-content>scriptless</body-content>
-		<attribute>
-			<name>color</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-		</attribute>
-	</tag>
-	<tag>
-		<name>formatNumber</name>
-		<tag-class>no.hib.dat152.tags.NumberFormatterTag</tag-class>
-		<body-content>empty</body-content>
-		<attribute>
-			<name>format</name>
-			<required>true</required>
-		</attribute>
-		<attribute>
-			<name>number</name>
-			<required>true</required>
-		</attribute>
-	</tag>
-	<tag>
-		<name>power</name>
-		<tag-class>no.hib.dat152.tags.PowerNumber</tag-class>
 
-		<attribute>
-			<name>number</name>
-			<required>true</required>
-		</attribute>
-
-		<attribute>
-			<name>power</name>
-			<required>true</required>
-		</attribute>
-
-	</tag>
-	<tag>
-		<name>square</name>
-		<tag-class>no.hib.dat152.tags.Square</tag-class>
-		<body-content>empty</body-content>
-		<attribute>
-			<name>number</name>
-			<required>true</required>
-		</attribute>
-
-	</tag>
 </taglib>
