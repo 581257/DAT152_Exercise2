@@ -1,10 +1,12 @@
 package servlets;
 
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,9 +56,16 @@ public class ProductServlet extends HttpServlet {
 			System.out.println("locale "+ locale.getCountry());
 			response.addCookie(localecookie);
 		}
-		//ikke riktig måte å gjøre det på 
-		request.getSession().setAttribute("lang", lang);
-		request.getSession().setAttribute("products", eao.getAll());
+		List<Product> prod = eao.getAll();
+		List<Integer> priceEuro = prod.stream().map(p->p.getPriceInEuro()).collect(Collectors.toList());
+		Locale locale = new Locale("no", "NO");
+		NumberFormat formatter = NumberFormat.getCurrencyInstance(locale);
+		List<String> priceNOK = new ArrayList<String>();
+		for(Integer p : priceEuro) {
+			priceNOK.add(formatter.format(p));
+		}
+		request.getSession().setAttribute("priceNOK", priceNOK);
+		request.getSession().setAttribute("products", prod);
 		response.sendRedirect("product.jsp");
 	}
 
@@ -64,13 +73,14 @@ public class ProductServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pno = request.getParameter("pno");
 		System.out.println(pno +" pno");
+		
 		if(pno!=null) {
 			int pnoint = Integer.parseInt(pno);
 			if(!choosen.stream().anyMatch(p->p.getPno()==pnoint)) {
 				System.out.println(eao.getProduct(pnoint).getpName());
 				choosen.add(eao.getProduct(pnoint));
-				
-			
+			}else {
+				eao.getProduct(pnoint).setQty();
 			}
 		}
 		request.getSession().setAttribute("choosen", choosen);

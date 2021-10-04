@@ -5,8 +5,9 @@ import java.util.List;
 public class Product {
 	private int pno;
 	private String pName;
-	private String priceInEuro;
-	private List<Description> description; 
+	private int priceInEuro;
+	private List<Description> description;
+	private int qty=1;
 	//imagefile?
 	public int getPno() {
 		return pno;
@@ -20,10 +21,10 @@ public class Product {
 	public void setpName(String pName) {
 		this.pName = pName;
 	}
-	public String getPriceInEuro() {
+	public int getPriceInEuro() {
 		return priceInEuro;
 	}
-	public void setPriceInEuro(String priceInEuro) {
+	public void setPriceInEuro(int priceInEuro) {
 		this.priceInEuro = priceInEuro;
 	}
 	public List<Description> getDescription() {
@@ -32,14 +33,24 @@ public class Product {
 	public void setDescription(List<Description> description) {
 		this.description = description;
 	}
-	public Product(int pno, String pName, String priceInEuro, List<Description> description) {
+	public Product(int pno, String pName, int priceInEuro, List<Description> description) {
 		super();
 		this.pno = pno;
 		this.pName = pName;
 		this.priceInEuro = priceInEuro;
 		this.description = description;
+		
+	}
+	public int getQty() {
+		return qty;
+	}
+	public void setQty() {
+		this.qty++;
 	}
 	
+	
+	
+
 	
 	
 	

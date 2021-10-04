@@ -18,10 +18,14 @@
     <fmt:bundle basename="dat152.languages.Messages">
              <c:forEach items="${products}" var="p">
                 <h3>  ${p.pName} </h3>
+                <c:choose> 
+                    <c:when test="${pageContext.response.locale==no_NO}">
                 <p> <fmt:message key="price"/>: ${p.priceInEuro}</p>
+                    </c:when>
+                </c:choose>
                 <c:forEach items="${p.description}" var="d">
                     <c:choose>
-                       <c:when test="${d.langCode==lang}">
+                       <c:when test="${d.langCode== pageContext.response.locale}">
                              <p> <fmt:message key="description"/>: ${d.text}</p>   
                              <p> <dat152:shorttext>${d.text}</dat152:shorttext></p>                  
                        </c:when>
@@ -32,6 +36,7 @@
                     <p><input type="submit" value="<fmt:message key="add"/>" /></p>
                 </form>
              </c:forEach>
+          <p>   ${pageContext.response.locale}</p>
     
     
         <p><a href="index.jsp"><fmt:message key="home"/></a> <a href="Cart"><fmt:message key="cart" /></a></p>
